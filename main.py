@@ -22,7 +22,9 @@ def main():
     try:
         llm = HF_LLM()
         while True:
-            query = input(f"Enter your query (or 'exit' to quit). {Colour.GREEN}>>{Colour.RESET} ")
+            query = input(
+                f"Enter your query (or 'exit' to quit). {Colour.GREEN.value}>>{Colour.RESET.value} "
+            )
             if query.lower() == 'exit':
                 break
             llm.generate_response(query)

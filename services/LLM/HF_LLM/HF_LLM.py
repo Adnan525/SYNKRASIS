@@ -206,7 +206,7 @@ class HF_LLM(LLMBase):
             quantization_config=quant_config,
             use_cache=self.use_cache,
             device_map=self.device_map,
-            torch_dtype=torch.bfloat16
+            dtype=torch.bfloat16
         )
 
         # pipeline
