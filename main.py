@@ -14,6 +14,7 @@ from utils.output_message_format.output_colour import print_model_output, print_
 from utils.output_message_format.output_colour import print_success, print_warning
 from utils.resource.resource_mg_util import call_cleanup
 from utils.ascii.synkrasis import print_synkrasis_logo
+from utils.output_message_format.output_colour import Colour
 
 
 def main():
@@ -21,7 +22,7 @@ def main():
     try:
         llm = HF_LLM()
         while True:
-            query = input("Enter your query (or 'exit' to quit): ")
+            query = input(f"Enter your query (or 'exit' to quit). {Colour.GREEN}>>{Colour.RESET} ")
             if query.lower() == 'exit':
                 break
             llm.generate_response(query)
