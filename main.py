@@ -5,8 +5,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 # Services
-from services.LLM.Ollama.Ollama import Ollama
-from services.LLM.Ollama.OllamaContainer import OllamaContainer
+from services.LLM.HF_LLM.HF_LLM import HF_LLM
+from services.LLM.Ollama.OllamaClient import OllamaClient
 from services.Container.Container import Container
 
 # Utils
@@ -19,7 +19,7 @@ from utils.ascii.synkrasis import print_synkrasis_logo
 def main():
     print_synkrasis_logo()
     try:
-        llm = Ollama()
+        llm = HF_LLM()
         while True:
             query = input("Enter your query (or 'exit' to quit): ")
             if query.lower() == 'exit':

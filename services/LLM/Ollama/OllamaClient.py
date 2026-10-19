@@ -87,10 +87,10 @@ class OllamaClient(LLMBase):
         # Messages first, it initialises the chat history if needed
         messages = self._prepare_messages(user_prompt, context, suppress_conversation_history)
         system_prompt = self._prepare_system_prompt(suppress_conversation_history)
-        messages = [{"role": "system", "content": system_prompt}, *messages]
 
         # Generate response from the model
-        response = self.ollama_client.chat(model = self.model_name, messages = messages)
+        response = self.ollama_client.chat(model = self.model_name,
+                                           messages = [{"role": "system", "content": system_prompt}, *messages])
         answer = response["message"]["content"]
 
         # Add the interaction to chat history
