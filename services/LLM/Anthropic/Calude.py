@@ -56,21 +56,6 @@ class Claude(LLMBase):
             return anthropic_api_key
         else:
             raise Exception("No .env file found")
-        
-
-    def _get_available_models(self) -> List[str]:
-        """
-        Get list of available Claude models
-        Note: This is a static list as Anthropic doesn't provide a models endpoint
-        """
-        return [
-            "claude-3-7-sonnet-20250219"
-            "claude-3-5-sonnet-20241022",
-            "claude-3-5-haiku-20241022", 
-            "claude-3-opus-20240229",
-            "claude-3-sonnet-20240229",
-            "claude-3-haiku-20240307"
-        ]
 
 
     def set_model(self, model_name: str):
@@ -79,10 +64,6 @@ class Claude(LLMBase):
         Args:
             model_name (str): Name of the model to set
         """
-        available_models = self._get_available_models()
-        if model_name not in available_models:
-            print_error(f"Model {model_name} not available. Available models: {available_models}")
-            return
         self.model_name = model_name
         print_info(f"Model changed to {self.model_name}")
 
