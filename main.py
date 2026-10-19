@@ -20,7 +20,7 @@ from utils.output_message_format.output_colour import Colour
 def main():
     print_synkrasis_logo()
     try:
-        llm = HF_LLM()
+        llm = HF_LLM(verbose_switch = True)
         while True:
             query = input(
                 f"Enter your query (or 'exit' to quit). {Colour.GREEN.value}>>{Colour.RESET.value} "
